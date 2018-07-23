@@ -1,0 +1,38 @@
+[
+    {
+        "ParameterKey": "ClusterName",
+        "ParameterValue": "demo"
+    },
+    {
+        "ParameterKey": "ClusterControlPlaneSecurityGroup",
+        "ParameterValue": "sg-5fa2242f"
+    },
+    {
+        "ParameterKey": "KeyName",
+        "ParameterValue": "demo-eks"
+    },
+    {
+        "ParameterKey": "NodeGroupName",
+        "ParameterValue": "eks-workers"
+    },
+    {
+        "ParameterKey": "NodeAutoScalingGroupMinSize",
+        "ParameterValue": "1"
+    },
+    {
+        "ParameterKey": "NodeAutoScalingGroupMaxSize",
+        "ParameterValue": "3"
+    },
+    {
+        "ParameterKey": "NodeImageId",
+        "ParameterValue": "ami-73a6e20b"
+    },
+    {
+        "ParameterKey": "VpcId",
+        "ParameterValue": "vpc-1b4ba563"
+    },
+    {
+        "ParameterKey": "Subnets",
+        "ParameterValue":"subnet-3f430446,subnet-5ae38211,subnet-ef1242b5"
+    }
+]

@@ -1,0 +1,39 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: lb
+spec:
+  selector:
+    app: demo
+    tier: frontend
+  ports:
+  - protocol: "TCP"
+    port: 80
+    targetPort: 80
+  type: LoadBalancer
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lb
+spec:
+  selector:
+    matchLabels:
+      app: demo
+      tier: frontend
+      track: stable
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: demo
+        tier: frontend
+        track: stable
+    spec:
+      containers:
+      - name: nginx
+        image: "wiss013/lb-demo"
+        lifecycle:
+          preStop:
+            exec:
+              command: ["/usr/sbin/nginx","-c","/etc/nginx/conf.d/demo.conf"]

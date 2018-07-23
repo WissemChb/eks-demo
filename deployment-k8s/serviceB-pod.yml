@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: server-b
+spec:
+  selector:
+    matchLabels:
+      app: server-b
+      tier: backend
+      track: stable
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: server-b
+        tier: backend
+        track: stable
+    spec:
+      containers:
+        - name: flapi
+          image: "wiss013/demo-server_b"
+          ports:
+            - name: http
+              containerPort: 8000

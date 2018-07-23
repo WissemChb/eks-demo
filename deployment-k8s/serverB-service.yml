@@ -1,0 +1,12 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: server-b
+spec:
+  selector:
+    app: server-b
+    tier: backend
+  ports:
+  - protocol: TCP
+    port: 8000
+    targetPort: http
